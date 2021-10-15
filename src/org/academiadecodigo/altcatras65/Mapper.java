@@ -13,5 +13,15 @@ public class Mapper {
 
     public void init() {
         this.mapGrid.init();
+        createVisualGrid();
+    }
+
+
+    private void createVisualGrid() {
+        for (int i = mapGrid.PADDING/mapGrid.getCellSize(); i <=this.mapGrid.getRows(); i++) {
+            for (int j = mapGrid.PADDING/mapGrid.getCellSize(); j <=this.mapGrid.getCols(); j++) {
+                this.mapGrid.makeGridPosition(j, i);
+            }
+        }
     }
 }
