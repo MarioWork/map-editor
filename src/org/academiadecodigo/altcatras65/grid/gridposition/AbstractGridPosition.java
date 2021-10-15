@@ -1,5 +1,6 @@
 package org.academiadecodigo.altcatras65.grid.gridposition;
 
+import org.academiadecodigo.altcatras65.Square;
 import org.academiadecodigo.altcatras65.grid.SimpleGfxGrid;
 
 public abstract class AbstractGridPosition {
@@ -12,6 +13,16 @@ public abstract class AbstractGridPosition {
         this.row = row;
         this.mapGrid = mapGrid;
     }
+
+    //region Getters and Setters
+    public int getCol() {
+        return col;
+    }
+
+    public int getRow() {
+        return row;
+    }
+    //endregion
 
     public void moveUp(int distance) {
         this.row -= distance;
@@ -29,5 +40,13 @@ public abstract class AbstractGridPosition {
         this.col += distance;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        GridPosition gridPosition = null;
+        if (obj instanceof GridPosition) {
+            gridPosition = ((GridPosition) obj);
+        }
 
+        return this.col == gridPosition.getCol() && this.row == gridPosition.getRow();
+    }
 }

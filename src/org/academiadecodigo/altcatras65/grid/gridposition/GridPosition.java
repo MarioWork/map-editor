@@ -2,6 +2,7 @@ package org.academiadecodigo.altcatras65.grid.gridposition;
 
 import org.academiadecodigo.altcatras65.grid.GridDirectionType;
 import org.academiadecodigo.altcatras65.grid.SimpleGfxGrid;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class GridPosition extends AbstractGridPosition {
@@ -9,10 +10,11 @@ public class GridPosition extends AbstractGridPosition {
     private SimpleGfxGrid mapGrid;
     private Rectangle recPosition;
 
-    public GridPosition(int col, int row, SimpleGfxGrid mapGrid, boolean isFilled) {
+    public GridPosition(int col, int row, SimpleGfxGrid mapGrid, boolean isFilled, Color color) {
         super(col, row, mapGrid);
         this.mapGrid = mapGrid;
         this.recPosition = new Rectangle(mapGrid.columnToX(col), mapGrid.rowToY(row), mapGrid.getCellSize(), mapGrid.getCellSize());
+        this.recPosition.setColor(color);
 
         if (isFilled) {
             this.fill();

@@ -1,5 +1,6 @@
 package org.academiadecodigo.altcatras65.handler;
 
+import org.academiadecodigo.altcatras65.grid.PositionChecker;
 import org.academiadecodigo.altcatras65.Square;
 import org.academiadecodigo.altcatras65.grid.GridDirectionType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
@@ -7,12 +8,19 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class MapperKeyboardHandler implements KeyboardHandler {
-    private Square square;
-    private Keyboard keyboard;
+import java.util.LinkedList;
 
-    public MapperKeyboardHandler(Square square) {
-        this.square = square;
+public class MapperKeyboardHandler implements KeyboardHandler {
+    private Square playerSquare;
+    private LinkedList<Square> squares;
+    private Keyboard keyboard;
+    private PositionChecker positionChecker;
+
+    public MapperKeyboardHandler(Square playerSquare, LinkedList<Square> squares, PositionChecker positionChecker) {
+        this.playerSquare = playerSquare;
+        this.squares = squares;
+
+        this.positionChecker = positionChecker;
 
         //adds the keys needed to the keyboard
         this.keyboard = new Keyboard(this);
@@ -21,6 +29,7 @@ public class MapperKeyboardHandler implements KeyboardHandler {
         addKey(KeyboardEvent.KEY_LEFT);
         addKey(KeyboardEvent.KEY_RIGHT);
         addKey(KeyboardEvent.KEY_SPACE);
+        addKey(KeyboardEvent.KEY_C);
     }
 
     private void addKey(int key) {
@@ -40,19 +49,22 @@ public class MapperKeyboardHandler implements KeyboardHandler {
     public void keyPressed(KeyboardEvent e) {
         switch (e.getKey()) {
             case KeyboardEvent.KEY_UP:
-                this.square.move(GridDirectionType.UP);
+                this.playerSquare.move(GridDirectionType.UP);
                 break;
             case KeyboardEvent.KEY_DOWN:
-                this.square.move(GridDirectionType.DOWN);
+                this.playerSquare.move(GridDirectionType.DOWN);
                 break;
             case KeyboardEvent.KEY_LEFT:
-                this.square.move(GridDirectionType.LEFT);
+                this.playerSquare.move(GridDirectionType.LEFT);
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                this.square.move(GridDirectionType.RIGHT);
+                this.playerSquare.move(GridDirectionType.RIGHT);
                 break;
             case KeyboardEvent.KEY_SPACE:
-
+                this.playerSquare.paint(this.positionChecker.check(this.playerSquare));
+                break;
+            case KeyboardEvent.KEY_C:
+                this.playerSquare.paint(this.positionChecker.check(this.playerSquare));
                 break;
         }
     }

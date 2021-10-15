@@ -1,6 +1,7 @@
 package org.academiadecodigo.altcatras65.grid;
 
 import org.academiadecodigo.altcatras65.grid.gridposition.GridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public interface Grid {
 
@@ -50,8 +51,9 @@ public interface Grid {
      *
      * @param col
      * @param row
+     * @param color
      */
-    GridPosition makeGridPosition(int col, int row, boolean isFilled);
+    GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color);
 
 
 }

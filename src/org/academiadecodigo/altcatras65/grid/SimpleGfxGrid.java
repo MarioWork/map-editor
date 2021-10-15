@@ -1,7 +1,10 @@
 package org.academiadecodigo.altcatras65.grid;
 
 import org.academiadecodigo.altcatras65.grid.gridposition.GridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
+import java.awt.*;
 
 public class SimpleGfxGrid implements Grid {
     public static final int PADDING = 10;
@@ -51,8 +54,8 @@ public class SimpleGfxGrid implements Grid {
     }
 
     @Override
-    public GridPosition makeGridPosition(int col, int row, boolean isFilled) {
-        return new GridPosition(col,row,this,isFilled);
+    public GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color) {
+        return new GridPosition(col,row,this,isFilled, color);
     }
     //endregion
 }
