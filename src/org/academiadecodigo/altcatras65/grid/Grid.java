@@ -51,7 +51,7 @@ public interface Grid {
      * @param col
      * @param row
      */
-    GridPosition makeGridPosition(int col, int row);
+    GridPosition makeGridPosition(int col, int row, boolean isFilled);
 
 
 }

@@ -13,6 +13,21 @@ public abstract class AbstractGridPosition {
         this.mapGrid = mapGrid;
     }
 
+    public void moveUp(int distance) {
+        this.row -= distance;
+    }
+
+    public void moveDown(int distance) {
+        this.row += distance;
+    }
+
+    public void moveLeft(int distance) {
+        this.col -= distance;
+    }
+
+    public void moveRight(int distance) {
+        this.col += distance;
+    }
 
 
 }

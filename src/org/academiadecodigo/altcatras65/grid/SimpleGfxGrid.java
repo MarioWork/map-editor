@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class SimpleGfxGrid implements Grid {
     public static final int PADDING = 10;
-    public final int cell_size = 10;
+    public final int cell_size = 30;
     private int cols;
     private int rows;
     private Rectangle recGrid;
@@ -14,7 +14,7 @@ public class SimpleGfxGrid implements Grid {
     public SimpleGfxGrid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
-        this.recGrid = new Rectangle(PADDING, PADDING, columnToX(cols), rowToY(rows));
+        this.recGrid = new Rectangle(PADDING, PADDING, cols*cell_size, rows*cell_size);
     }
 
     //region Getters and Setters
@@ -51,8 +51,8 @@ public class SimpleGfxGrid implements Grid {
     }
 
     @Override
-    public GridPosition makeGridPosition(int col, int row) {
-        return new GridPosition(col,row,this);
+    public GridPosition makeGridPosition(int col, int row, boolean isFilled) {
+        return new GridPosition(col,row,this,isFilled);
     }
     //endregion
 }
