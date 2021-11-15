@@ -21,6 +21,9 @@ java -jar map-editor.jar
 ## Technologies
 + Java 8
 + OOP
+
+## Libraries
++ [SimpleGraphics](https://github.com/academia-de-codigo/simple-graphics)
     
 ## Collaborators
 [Mario Vieira](https://github.com/MarioWork)
