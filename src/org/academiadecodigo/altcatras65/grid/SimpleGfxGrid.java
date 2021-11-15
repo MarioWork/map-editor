@@ -54,8 +54,12 @@ public class SimpleGfxGrid implements Grid {
     }
 
     @Override
-    public GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color) {
+    public GridPosition makeSquareGridPosition(int col, int row, boolean isFilled, Color color) {
         return new GridPosition(col,row,this,isFilled, color);
+    }
+
+    public GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color, int width, int height) {
+        return new GridPosition(col,row,this,isFilled, color,width,height);
     }
     //endregion
 }

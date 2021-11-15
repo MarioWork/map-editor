@@ -53,7 +53,19 @@ public interface Grid {
      * @param row
      * @param color
      */
-    GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color);
+    GridPosition makeSquareGridPosition(int col, int row, boolean isFilled, Color color);
+
+    /**
+     * Create a new position int the grid at a specific col and row and a specific width and height
+     * @param col
+     * @param row
+     * @param isFilled
+     * @param color
+     * @param width
+     * @param height
+     * @return
+     */
+    GridPosition makeGridPosition(int col, int row, boolean isFilled, Color color, int width, int height);
 
 
 }
