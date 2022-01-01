@@ -1,5 +1,5 @@
 # Map Editor
-This project consists of an artboard that allow to draw with the square cursor.
+This project consists of an artboard that allows to draw with the square cursor.
 
 ## How to use
 + WASD - to navigage
